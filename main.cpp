@@ -1,7 +1,7 @@
 #include <iostream>
 #include "include/funciones.h"
 #include "include/producto.h"
-
+#include <omp.h>
 #define rutaProductos "data/products_taller.csv"
 #define rutaCantidades "data/trx_taller.csv"
 
@@ -12,11 +12,9 @@
  * @return El código de salida del programa
  */
 int main(int argc, char** argv) {
-    
     std::vector<Producto> productos = generarProductos(rutaProductos);
     generarCantidad(productos, rutaCantidades);
     generarCsv(productos);
-
     participantes();
     return 0;
 }
